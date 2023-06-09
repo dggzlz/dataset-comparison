@@ -15,21 +15,35 @@ def get_list(file : str) -> list:
     Returns:
     (list) excel list - a 2D list with all the info from the data set
     """
-
-    excel_list = []
+    dataset = []
 
     for cell in file:
         row = cell.strip().replace(',', ' ').split()
-        excel_list.append(row)
+        dataset.append(row)
 
-    return excel_list
+    return dataset 
 
-def main() -> None:
+def write_dataset()->None:
     
-    #filename = input("insert name of file: ")
-    
-    file_reader = open(r'dataset.csv', 'r')
-    elist = get_list(file_reader)
-    print(elist)
+    file_reader = open(r'dataset.csv', 'w')
+    file_reader.write()
+    file_reader.close()
 
+def open_file() -> list:    
+    
+    while True:
+        filename = input("Select csv file: ")
+        try:
+            file_reader = open(fr'{filename}', 'r')
+            break
+        except:
+                print("could not open.")
+    
+    return get_list(file_reader)
+        
+def main()->None:
+    dataset1 = open_file()
+    dataset2 = open_file()
+    print(dataset1)
+    print(dataset2)
 main()
