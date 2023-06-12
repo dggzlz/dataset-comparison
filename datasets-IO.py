@@ -36,8 +36,12 @@ def open_file() -> list:
         try:
             file_reader = open(fr'{filename}', 'r')
             break
+        except FileNotFoundError:
+            print("File not found. please select a valid file.")
+        except FileExistsError:
+            print("An error ocurred with the file selected. Try again.")
         except:
-                print("could not open.")
+            print("Could not open. Try again.")
     
     return get_list(file_reader)
         
