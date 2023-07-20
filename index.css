@@ -1,16 +1,47 @@
 nav {
-    background-color: aquamarine;
+    background-color: #3F00FF;
     display: flex;
     justify-content: center;
 	border-bottom: #D3D3D3 1px solid;
     height: 100%;
 }
 
-#option-box {
-    justify-content: center;
+#parent-box {
+    display: flex;
     align-items: center;
 }
 
+#option-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#option-box button {
+    margin: 10px;
+    background-color: #A7C7E7;
+}
+
 body{
-    background-color: gray;
+    background-color: lightblue;
+}
+
+#gif-image-bottom{
+    width:99%;
+    height: 350px;
+    border: 5px solid aquamarine;
+}
+
+#gif-image-left{
+    margin-right: 20px;
+    border: 5px solid aquamarine;
+}
+
+#gif-image-right{
+    width:500px;
+    height: 300px;
+    margin-left: 20px;
+    border: 5px solid aquamarine;
 }
