@@ -25,4 +25,6 @@ nav a:hover {
 }
 body {
 	background-color: lightblue;
+    color: black;
+    padding-top: 70px;
 }
