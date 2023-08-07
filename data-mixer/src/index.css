@@ -1,0 +1,88 @@
+nav {
+	background-color: #33d3f0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	border-bottom: #d3d3d3 1px solid;
+	top: 0;
+	left: 0;
+	width: 100%;
+  z-index: 1;
+}
+nav button {
+	all: unset;
+	padding: 10px;
+	cursor: pointer;
+}
+nav button:hover {
+	color: blue;
+	background-color: rgba(0, 0, 255, 0.39);
+	border-radius: 10%;
+}
+body {
+	background-color: lightblue;
+	color: black;
+}
+#overlay {
+  position: fixed;
+  background-color: rgba(250, 250, 250, 0.8);
+  width: 100%;
+  height: 100vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#exit {
+  position: fixed;
+  top:0;
+  right: 0;
+  padding: 1%;
+}
+#nav-header{
+  top: 0;
+  position: fixed;
+}
+#cbox-1{
+  left: 10%;
+  top: 10%;
+  margin-top: 10%;
+  position: fixed;
+}
+#cbox-2 {
+  right: 10%;
+    top: 10%;
+    margin-top: 10%;
+    position: fixed;
+}
+#cunder-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  margin: 50px auto;
+}
+
+#cleft,
+#crigt {
+  flex: 1;
+  border: 2px dashed black;
+  padding: 20px;
+  margin: 10px;
+}
+
+#cmid {
+  width: 10%;
+  background-color: #ccc;
+  margin: 10px;
+  border: 2px dashed black;
+  padding: 5px;
+}
+#submit-button{
+  padding: 1%;
+  background-color: whitesmoke;
+}
