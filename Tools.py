@@ -14,30 +14,33 @@ class DataList:
         Returns:
         (list) excel list - a 2D list with all the info from the data set
         """
-        dataset = []
+        dataset = [] # empty list
 
         for cell in file:
             line = cell.strip().replace(',', ' ').split()
-            item = _Item(line)
-            dataset.append(item)
+            dataset.append(_Item(line))
 
         return dataset
     
     def howMany(self, upc : int) -> int:
         """
         Counts how many times the specified item appears in the list
+        
+        Args:
+        
+        (int) upc: Universal Standard Code (UPC) used to mark what product/item is
+        
+        returns:
+        (int) n_item: the count for how many time the item appears in the list.  
         """
-        n_item = 0
-        # note: think about a method that will search for you, 
-        # since you're gonna use it many times
-        for i in range(len(self.list)):
+        n_item = 0 # Counter
+        for i in range(len(self.list)): # iterating through the list 
             if upc == self.list[i].upc:
                 n_item += 1
         return n_item
-    #Note: is this function neccesary?
+    
 
-
-    def search(self, upc: int):
+    def __search(self, upc: int)-> int:
         """
         Searchs for an spicific item in the dataset and return the place where it is
         """
@@ -59,11 +62,15 @@ class DataList:
     #     """
     #     return
     
-    def copy(self):
+    def copy(self, dataset)-> None:
         """
         copy a whole dataset
         """
-        return
+        new_dataset = []
+        for i in range(len(dataset.list)):
+            new_dataset.append(dataset.list[i])
+        self.list = new_dataset
+        
     
     def sort(self, sort_by: str)-> None:
         """
@@ -94,21 +101,16 @@ class DataList:
         It adds the specified item and sorts it in the list.
 
         Arguments:
-        (int) amount: the amount of the item to be added
-        (str) name: name of the item to be added
-        (int) UPC: code of the item to be added
+        (list) item: a list with the information of the item as follows:    
+                index 0 -> (int) amount: the amount of the item to be added
+                index 1 -> (str) name: name of the item to be added
+                index 2 -> (int) UPC: code of the item to be added
 
         if the item exists then the amount will be added, otherwise it will add it as new item, 
         and sorted by upc by deafult.
         """
-        # found = False
-        # for i in range(len(self.list)):
-        #     if item[2] == self.list[i].upc:
-        #         self.list[i].quantity += item[0]
-        #         found = True
-        #         break
 
-        index = self.search(item[2])
+        index = self.__search(item[2])
         if index == -1:
             self.list.append(_Item(item))
             self.sort("upc")
@@ -118,25 +120,19 @@ class DataList:
             
     def remove(self, upc: int):
         """remove by upc"""
-        # found = False
-        # for i in range(len(self.list)):
-        #     if upc == self.list[i].upc:
-        #         self.list.remove(self.list[i])
-        #         found = True
-        #         break
-        index = self.search(upc)
+
+        index = self.__search(upc)
         if index == -1:
             print("Item not in the list")
         else:
             self.list.remove(self.list[index])
 
-        
 
-    
     def printList(self):
         print(f"{'Quantity':<10}{'Name':<10}{'UPC':<10}")
         for i in range(len(self.list)):
             print(f"{self.list[i].quantity:<10}{self.list[i].name:<10}{self.list[i].upc:<10}")
+        #Note: this will become the method to print the data into the file
     
     
     
